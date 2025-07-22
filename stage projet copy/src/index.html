@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Matricule Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 2em 3em;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 0.5em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 1em;
+    }
+    button {
+      padding: 0.5em 1.5em;
+      font-size: 1em;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 1.5em;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Check Matricule</h1>
+    <input type="text" id="matriculeInput" placeholder="Enter matricule">
+    <button onclick="checkMatricule()">Check</button>
+    <div id="result"></div>
+  </div>
+  <script>
+
+    function checkMatricule() {
+      const input = document.getElementById('matriculeInput').value.trim();
+      const resultDiv = document.getElementById('result');
+      if (!input) {
+        resultDiv.textContent = "Please enter a matricule.";
+        resultDiv.style.color = "red";
+        return;
+      }
+      const inAPS = apsList.includes(input);
+      const inAAS = aasList.includes(input);
+      if (inAPS && inAAS) {
+        resultDiv.textContent = `Matricule ${input} exists in BOTH APS and AAS.`;
+        resultDiv.style.color = "green";
+      } else if (inAPS) {
+        resultDiv.textContent = `Matricule ${input} exists ONLY in APS.`;
+        resultDiv.style.color = "blue";
+      } else if (inAAS) {
+        resultDiv.textContent = `Matricule ${input} exists ONLY in AAS.`;
+        resultDiv.style.color = "orange";
+      } else {
+        resultDiv.textContent = `Matricule ${input} does NOT exist in either APS or AAS.`;
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html> 
