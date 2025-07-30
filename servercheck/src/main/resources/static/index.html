@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Checker</title>
+    <!-- Use BR Sonoma font if available, fallback to system sans-serif -->
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/br-sonoma" />
+    <link rel="stylesheet" href="index.css">
+
+
+</head>
+<body>
+<div class="container">
+    <img src="visiativ-logo-340x156px-3.png" alt="Logo" class="logo-img">
+    <div class="center-content">
+        <div class="glass">
+            <h1>Check Server</h1>
+            <form class="input-row" id="checkForm" onsubmit="checkMatricule(); return false;">
+                <input type="text" id="matriculeInput" placeholder="Enter server name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                <button type="submit">Check</button>
+            </form>
+            <div id="result" class="result"></div>
+            <button id="showAddBtn" class="action-btn hidden" onclick="showAddForms()">Add</button>
+            <div id="addForms" class="hidden">
+                <div class="form-section">
+                    <h2 style="font-size:1.1em; margin-bottom:1em; color:#5146e1;">Add AAS</h2>
+                    <form class="input-row" onsubmit="addAAS(); return false;">
+                        <input type="text" id="aasServerInput" placeholder="Server name for AAS" autocomplete="off">
+                        <button type="submit">Add AAS</button>
+                    </form>
+                    <div id="aasResult"></div>
+                </div>
+                <div class="form-section">
+                    <h2 style="font-size:1.1em; margin-bottom:1em; color:#5146e1;">Add APS</h2>
+                    <form id="apsForm" onsubmit="addAPS(); return false;">
+                        <div class="input-row" style="margin-bottom:0.5em;">
+                            <input type="text" id="apsServerInput" placeholder="Server name for APS" autocomplete="off" style="width:100%;">
+                        </div>
+                        <div id="apsRows"></div>
+                        <button type="button" onclick="addAPSRow()" style="margin-bottom:1em;">+ Add APS Entry</button>
+                        <button type="submit">Add All APS</button>
+                    </form>
+                    <div id="apsResult"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-indicator"></div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
